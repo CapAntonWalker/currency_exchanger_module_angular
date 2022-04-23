@@ -1,0 +1,25 @@
+<div class="holder">
+    <div 
+        *ngFor="let field of fields"
+        class="box">
+
+        <div class="clearInput">
+            <input 
+                type="text" 
+                (input)="changeVal(field.id, $event)" 
+                [value]="field.inputFieldVal">
+        </div>
+        <div class="customSelect">
+            <select 
+                (change)="changeSlected(field.id, $event)" 
+                [value]="field.selectedSymbol">
+                <option disabled>Select currency</option>
+                <option 
+                    *ngFor="let iter of currencySymbols"
+                    value={{iter.symbol}}
+                >{{iter.name}}</option>
+            </select>
+            <span class="customArrow"></span>
+        </div>
+    </div>
+</div>
